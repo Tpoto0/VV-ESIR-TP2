@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Ruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/pmd-6.56.0/ruleset_2_0_0.xsd">
+
+
+    <description>
+        Règles personnalisées pour détecter des cas spécifiques dans le code Java.
+    </description>
+
+
+    <rule name="RuleExo3"
+          language="java"
+          message="Avoid using three or more nested if statements."
+          class="net.sourceforge.pmd.lang.rule.xpath.XPathRule">
+        <description>
+            This rule detects the use of three or more nested if statements in Java programs.
+        </description>
+        <priority>3</priority>
+
+
+        <properties>
+            <property name="xpath">
+                <value><![CDATA[
+//IfStatement[descendant::IfStatement/descendant::IfStatement]
+]]></value>
+            </property>
+        </properties>
+    </rule>
+
+
+</ruleset>

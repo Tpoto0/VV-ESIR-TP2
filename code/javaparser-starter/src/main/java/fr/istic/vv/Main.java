@@ -28,11 +28,13 @@ public class Main {
         }
 
         SourceRoot root = new SourceRoot(file.toPath());
-        PublicElementsPrinter printer = new PublicElementsPrinter();
+        //PublicElementsPrinter printer = new PublicElementsPrinter();
+        NoGetter gettez = new NoGetter();
         root.parse("", (localPath, absolutePath, result) -> {
-            result.ifSuccessful(unit -> unit.accept(printer, null));
+            result.ifSuccessful(unit -> unit.accept(gettez, null));
             return SourceRoot.Callback.Result.DONT_SAVE;
         });
+        gettez.ecrireHashMapDansCsv(gettez.getMap(),"gettez.csv");
     }
 
 
