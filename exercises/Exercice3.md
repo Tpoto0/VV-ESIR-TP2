@@ -23,3 +23,4 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
+We used PMD Designer, then we inserted examples of classes like the one in the statement. Then we created a rule that takes into account all the triple "if" nested inside each other. We then integrated the PMD Designer rule into the PMD Ruleset. The result returns all the areas in the code where there are 3 nested "if".
